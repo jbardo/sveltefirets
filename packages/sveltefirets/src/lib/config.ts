@@ -1,13 +1,13 @@
 import type { FirebaseOptions } from 'firebase/app';
 
-// @ts-ignore
-import { PUBLIC_FIREBASE_CONFIG } from '$env/static/public'; 
+// // @ts-ignore
+// import { PUBLIC_FIREBASE_CONFIG } from '$env/static/public'; 
 
-if (!PUBLIC_FIREBASE_CONFIG) {
-  throw Error('PUBLIC_FIREBASE_CONFIG is not set in your env variables.');
-}
+// if (!PUBLIC_FIREBASE_CONFIG) {
+//   throw Error('PUBLIC_FIREBASE_CONFIG is not set in your env variables.');
+// }
 
-export const firebaseConfig: FirebaseOptions = JSON.parse(PUBLIC_FIREBASE_CONFIG);
+export const firebaseConfig: FirebaseOptions = JSON.parse(import.meta.env.VITE_PUBLIC_FIREBASE_CONFIG);
 
 if (!firebaseConfig.projectId) {
   throw Error('PUBLIC_FIREBASE_CONFIG is not set properly in your env variables.');
